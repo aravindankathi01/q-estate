@@ -48,7 +48,13 @@ const Featured = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8'>
         {featuredList ? (
           featuredList.map((item, index) => {
-            return <FeaturedCard {...item} image={IMAGES[index]} />;
+            return (
+              <FeaturedCard
+                {...item}
+                image={IMAGES[index]}
+                key={item.property_id}
+              />
+            );
           })
         ) : (
           <p className='font-medium text-lg text-slate-800'>
