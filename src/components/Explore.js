@@ -4,6 +4,7 @@ import Dropdown from "./Dropdown";
 import CheckBox from "./CheckBox";
 import config from "../utils/config";
 import ListingsTableView from "./ListingsTableView";
+import Footer from "./Footer";
 
 const Explore = () => {
   const [locationFilter, setLocationFilter] = useState([]);
@@ -16,13 +17,27 @@ const Explore = () => {
     fetchFeaturedListings();
   }, []);
 
+  const uniqueFeaturedLists = ([...lists]) => {
+    let unique = {};
+    const filtered = lists.filter((item) => {
+      if (unique.hasOwnProperty(item.property_id)) {
+        return false;
+      } else {
+        unique[item.property_id] = true;
+        return true;
+      }
+    });
+    return filtered;
+  };
+
   async function fetchFeaturedListings() {
     try {
       const response = await fetch(
         config.backendEndPoint + "/real-estate-data"
       );
       const data = await response.json();
-      setFeaturedList(data.listings);
+
+      setFeaturedList(uniqueFeaturedLists(data.listings));
     } catch (error) {
       console.log("API FAILURE");
       console.error(error);
@@ -52,13 +67,13 @@ const Explore = () => {
   };
   return (
     <>
-      <div>
+      <div className=''>
         <Header page='explore' />
       </div>
-      <div className='col-start-1 col-span-4 h-2/6 w-[30vw] mx-auto mt-24 mb-5'>
+      <div className='col-start-1 col-span-4 h-2/6 w-[48vw] mx-auto mt-9 mb-3'>
         <Dropdown handleSortChange={handleSortChange} />
       </div>
-      <div className='w-[85vw] mx-auto h-[80vh] grid md:grid-cols-4 gap-2 grid-cols-1'>
+      <div className='md:w-[85vw] md:mx-auto w-full h-min grid md:grid-cols-4 gap-2 grid-cols-1 place-items-center md:place-items-baseline'>
         <div className=''>
           <CheckBox
             handleLocationFilterChange={handleLocationFilterChange}
@@ -67,7 +82,7 @@ const Explore = () => {
             priceRangeFilter={priceRangeFilter}
           />
         </div>
-        <div className='md:col-start-2 md:col-span-3 border-2 border-pink-500'>
+        <div className='md:col-start-2 md:col-span-3 border-2 border-pink-500 w-full'>
           {featuredList && (
             <ListingsTableView
               featuredList={featuredList}
@@ -78,6 +93,7 @@ const Explore = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

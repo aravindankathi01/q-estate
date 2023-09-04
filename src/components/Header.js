@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = ({ page }) => {
   return (
-    <div className='flex justify-between items-center w-10/12 mx-auto my-2'>
+    <div className='flex justify-between items-center w-full my-2 sm:w-[85vw] sm:mx-auto'>
       <h1 className='text-red-800 font-semibold text-3xl'>QEstate</h1>
       <div>
         {page === "home" ? (
