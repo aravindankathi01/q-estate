@@ -18,6 +18,7 @@ const CheckBox = ({
             <div key={index}>
               <input
                 type='checkbox'
+                className='cursor-pointer'
                 id={location}
                 name={location}
                 value={location}
@@ -38,6 +39,7 @@ const CheckBox = ({
           return (
             <div key={index}>
               <input
+                className='cursor-pointer'
                 type='checkbox'
                 id={price}
                 name={price}

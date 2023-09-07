@@ -30,6 +30,7 @@ const ListingsTableView = ({
   //edit funcs
   const handleEdit = (listing) => {
     setIsEditModelOpen(!isEditModelOpen);
+    // setIsEditModelOpen(true);
     setEditingItem(listing);
   };
   const handleEditSave = (editedItem) => {
@@ -193,10 +194,13 @@ const ListingsTableView = ({
             const { property_id, property_name, address, price, listing_date } =
               listing;
             return (
-              <tr key={property_id} className='w-full text-start'>
+              <tr
+                key={property_id}
+                className='w-full text-start hover:bg-gray-300'>
                 <td className='text-start p-2 border-[1px] border-[#e9e9e9]'>
                   <input
                     type='checkbox'
+                    className='cursor-pointer'
                     checked={selectedRows.includes(property_id)}
                     onChange={(event) =>
                       handleRowCheckBoxChange(event, property_id)
@@ -215,19 +219,21 @@ const ListingsTableView = ({
                 <td className='text-start p-2 border-[1px] border-[#e9e9e9]'>
                   {listing_date}
                 </td>
-                <td className='flex flex-row items-center justify-center gap-1 p-2 border-[1px] border-[#e9e9e9] h-11'>
-                  <AiFillDelete
-                    className='cursor-pointer'
-                    onClick={() => {
-                      handleDelete(property_id);
-                    }}
-                  />
-                  <AiFillEdit
-                    className='cursor-pointer'
-                    onClick={() => {
-                      handleEdit(listing);
-                    }}
-                  />
+                <td className='border-[1px] border-[#e9e9e9]'>
+                  <div className='flex justify-evenly items-center'>
+                    <AiFillDelete
+                      className='cursor-pointer'
+                      onClick={() => {
+                        handleDelete(property_id);
+                      }}
+                    />
+                    <AiFillEdit
+                      className='cursor-pointer'
+                      onClick={() => {
+                        handleEdit(listing);
+                      }}
+                    />
+                  </div>
                 </td>
               </tr>
             );

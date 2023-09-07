@@ -10,7 +10,7 @@ const EditModel = ({ handleEditSave, handleEditCancel, editingItem }) => {
   console.log(currEditedItem);
   const labels = ["property_name", "address", "price"];
   return (
-    <div className='w-[30vw] h-[50vh] shadow-2xl bg-white p-4 fixed top-1/4 left-1/3 right-1/3 bottom-1/4 overflow-y-scroll'>
+    <div className='w-[30vw] h-[40vh] shadow-2xl bg-white p-4 fixed top-1/4 left-1/3 right-1/3 bottom-1/4 overflow-y-scroll'>
       <h1 className='font-bold text-xl mb-3'>Edit Property</h1>
       {labels.map((label, index) => {
         return (

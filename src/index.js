@@ -5,6 +5,7 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import Explore from "./components/Explore";
+import ListingDetailPage from "./components/ListingDetailPage";
 
 const appRouter = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/listings",
     element: <Explore />,
+  },
+  {
+    path: "/detail/:property_id",
+    element: <ListingDetailPage />,
   },
 ]);
 

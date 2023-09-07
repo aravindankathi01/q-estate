@@ -4,7 +4,7 @@ const Dropdown = ({ handleSortChange }) => {
   return (
     <div className='flex justify-around items-center w-full'>
       <label htmlFor='sort' className='font-bold text-xl p-2'>
-        Sort By :
+        SortBy :
       </label>
       <select
         name='sort'

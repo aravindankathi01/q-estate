@@ -45,7 +45,7 @@ const Featured = () => {
       <h1 className='font-semibold text-4xl my-10'>
         Here are some of our featured listings:
       </h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
         {featuredList ? (
           featuredList.map((item, index) => {
             return (

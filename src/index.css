@@ -1,13 +1,34 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+/* :root {
+  --font-size: 1rem;
+}
+
+Use the custom property inside the media query
+@media screen and (max-width: 420px) {
+  :root {
+    --font-size: 8px;
+  }
+}
+
+/* Example of using the custom property in an element */
+/* body {
+  font-size: var(--font-size);
+} */
+
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 10px;
+  }
 }

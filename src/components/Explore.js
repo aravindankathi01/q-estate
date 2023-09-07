@@ -82,7 +82,7 @@ const Explore = () => {
             priceRangeFilter={priceRangeFilter}
           />
         </div>
-        <div className='md:col-start-2 md:col-span-3 border-2 border-pink-500 w-full'>
+        <div className='md:col-start-2 md:col-span-3 w-full'>
           {featuredList && (
             <ListingsTableView
               featuredList={featuredList}

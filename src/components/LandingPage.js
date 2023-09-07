@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className='w-full'>
       <Header page='home' />
       <HeroSection />
       <Featured />
