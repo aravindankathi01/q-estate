@@ -1,5 +1,5 @@
 const config = {
-  backendEndPoint: "http://localhost:5000",
+  backendEndPoint: "https://qestate.onrender.com",
 };
 
 export default config;
