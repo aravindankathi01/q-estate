@@ -70,7 +70,7 @@ const Explore = () => {
       <div className=''>
         <Header page='explore' />
       </div>
-      <div className='col-start-1 col-span-4 h-2/6 w-[48vw] mx-auto mt-9 mb-3'>
+      <div className='col-start-1 col-span-4 h-2/6 w-[60vw] sm:w-[48vw] mx-auto mt-9 mb-3'>
         <Dropdown handleSortChange={handleSortChange} />
       </div>
       <div className='md:w-[85vw] md:mx-auto w-full h-min grid md:grid-cols-4 gap-2 grid-cols-1 place-items-center md:place-items-baseline'>

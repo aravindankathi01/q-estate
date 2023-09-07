@@ -2,7 +2,7 @@ import React from "react";
 
 const Dropdown = ({ handleSortChange }) => {
   return (
-    <div className='flex justify-around items-center w-full'>
+    <div className='flex justify-between items-center w-full'>
       <label htmlFor='sort' className='font-bold text-xl p-2'>
         SortBy :
       </label>

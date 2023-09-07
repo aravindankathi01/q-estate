@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import EditModel from "./EditModel";
+import { useNavigate } from "react-router-dom";
 const ListingsTableView = ({
   featuredList,
   priceRangeFilter,
@@ -13,6 +14,7 @@ const ListingsTableView = ({
   //selected rows
   const [editingItem, setEditingItem] = useState({});
   const [isEditModelOpen, setIsEditModelOpen] = useState(false);
+  const navigate = useNavigate();
 
   //VARIABLES
   const itemsPerPage = 10;
@@ -196,7 +198,8 @@ const ListingsTableView = ({
             return (
               <tr
                 key={property_id}
-                className='w-full text-start hover:bg-gray-300'>
+                onClick={() => navigate("/detail/" + property_id)}
+                className='w-full text-start hover:bg-gray-300 cursor-pointer'>
                 <td className='text-start p-2 border-[1px] border-[#e9e9e9]'>
                   <input
                     type='checkbox'
@@ -205,6 +208,7 @@ const ListingsTableView = ({
                     onChange={(event) =>
                       handleRowCheckBoxChange(event, property_id)
                     }
+                    onClick={(event) => event.stopPropagation()}
                   />
                 </td>
                 <td className='text-start p-2 border-[1px] border-[#e9e9e9]'>
@@ -223,14 +227,16 @@ const ListingsTableView = ({
                   <div className='flex justify-evenly items-center'>
                     <AiFillDelete
                       className='cursor-pointer'
-                      onClick={() => {
+                      onClick={(event) => {
                         handleDelete(property_id);
+                        event.stopPropagation();
                       }}
                     />
                     <AiFillEdit
                       className='cursor-pointer'
-                      onClick={() => {
+                      onClick={(event) => {
                         handleEdit(listing);
+                        event.stopPropagation();
                       }}
                     />
                   </div>
